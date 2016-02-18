@@ -1,0 +1,12 @@
+baseurl = "https://resumazing.co/"
+languageCode = "en-us"
+title = "Resumazing - write resumes that get read"
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+builddrafts = false
+canonifyurls = true
+
+[params]
+  description = "Professional resume builder helps you get noticed when applying for work."
+  author = "Resumazing"
