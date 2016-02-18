@@ -47,6 +47,7 @@ build:
 
     # Hugo build
     - arjen/hugo-build@1.8.1
+      flags: --buildDrafts=true
 
     - s3sync:
         # source_dir: build/
