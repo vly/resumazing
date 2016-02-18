@@ -47,10 +47,10 @@ build:
 
     # Hugo build
     - arjen/hugo-build@1.8.1
-      
+
 
     - s3sync:
-        source_dir: build/
+        source_dir: public/
         delete-removed: true
         bucket-url: $AWS_BUCKET_URL
         key-id: $AWS_ACCESS_KEY_ID
