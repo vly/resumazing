@@ -50,7 +50,7 @@ build:
       
 
     - s3sync:
-        # source_dir: build/
+        source_dir: build/
         delete-removed: true
         bucket-url: $AWS_BUCKET_URL
         key-id: $AWS_ACCESS_KEY_ID
