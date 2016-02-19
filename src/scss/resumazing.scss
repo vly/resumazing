@@ -1,0 +1,230 @@
+$black: #212121;
+$white: #ffffff;
+$highlight: #FF5722;
+$accent: #303F9F;
+
+html, body { height: 100%; }
+
+body {
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: $black;
+  font-family: "ff-tisa-web-pro", serif;
+  font-size: 16px;
+  min-height: 100%;
+}
+
+.flex-wrap {
+  min-height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-wrap {
+  margin: 0 auto;
+  width: 94%;
+
+  @media screen and (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: table;
+    margin-top: -10%;
+    max-width: 1100px;
+    width: 90%;
+
+    .logo {
+      border-right: 1px solid $black;
+      display: table-cell;
+      margin: 0;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      width: 360px;
+    }
+
+    .right {
+      display: table-cell;
+      padding-bottom: 30px;
+      padding-left: 50px;
+      padding-top: 10px;
+    }
+  }
+}
+
+h1 {
+  font-family: "ff-tisa-sans-web-pro", sans-serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  text-align: center;
+
+  &:after {
+    border-bottom: 2px solid $black;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 30px 0;
+    width: 80px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: 3em;
+    text-align: left;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+p {
+  margin-bottom: 20px;
+  margin-top: 0;
+
+  @media screen and (min-width: 1000px) {
+    font-size: 1.2rem;
+  }
+}
+
+.logo {
+  display: block;
+  margin: 20px auto 30px auto;
+  max-width: 100%;
+  width: 200px;
+
+  svg {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+#mc_embed_signup {
+  h2 {
+    margin-bottom: 30px;
+    margin-top: 40px;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+
+    @media screen and (min-width: 1000px) {
+      text-align: left;
+    }
+  }
+
+  .fields {
+    .submit {
+      padding-top: 20px;
+    }
+
+    @media screen and (min-width: 1000px) {
+      display: table;
+      width: 100%;
+
+      & > div {
+        display: table-cell;
+
+        &.submit {
+          padding-left: 10px;
+          width: 130px;
+        }
+      }
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type="email"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $black;
+    font-family: "ff-tisa-sans-web-pro", sans-serif;
+    font-size: 1.4rem;
+    outline: none;
+    padding: 0;
+    height: 40px;
+    vertical-align: middle;
+    width: 100%;
+
+    &:focus {
+      color: $accent;
+    }
+  }
+
+  div.mce_inline_error {
+    background-color: transparent !important;
+    color: red !important;
+    font-family: "ff-tisa-sans-web-pro", sans-serif;
+    padding: 0 !important;
+    position: absolute;
+  }
+
+  .bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .bar:before,
+  .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: $accent;
+    transition: 0.2s ease all;
+  }
+
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
+
+  /* active state */
+  input:focus ~ .bar:before,
+  input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+  input[type="submit"] {
+    background-color: $highlight;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    color: $white;
+    font-family: "ff-tisa-sans-web-pro", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    letter-spacing: 1px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  ::-webkit-input-placeholder {
+      color: $black;
+  }
+  :-moz-placeholder {
+     color: $black;
+     opacity: 1;
+  }
+  ::-moz-placeholder {
+     color: $black;
+     opacity: 1;
+  }
+  :-ms-input-placeholder {
+     color: $black;
+  }
+  :placeholder-shown {
+    color: $black;
+  }
+}
