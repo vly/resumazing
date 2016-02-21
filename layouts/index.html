@@ -2,6 +2,7 @@
 <html class="no-js" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 <head>
     <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     {{ partial "meta.html" . }}
     <base href="{{ .Site.BaseURL }}">
     <title>{{ .Site.Title }}</title>
@@ -9,26 +10,9 @@
     {{ partial "head_includes.html" . }}
 </head>
 <body lang="en">
-  <div class="flex-wrap">
-    <div class="body-wrap">
-      {{ partial "logo.html" . }}
-      <div class="right">
-        {{ partial "subheader.html" . }}
-        <main>
-          <!-- <h2>Why Resumazing</h2> -->
-          <p>We help to increase your chances of finding that ideal job by helping you to tailor your resume and highlight your strengths with the role in mind.</p>
-          <!-- <h2>How it works</h2>
-          <ul>
-            <li>Have a specific job in mind? Just paste the link and get started. Or start with a clean slate.</li>
-            <li>We help you to tailor your resume get past the HR filters and into the hands of the right person, saving you from the automated rejections.</li>
-            <li>We save your resume history for you (if you wish) so you don't have to keep searching for a specific version to use.</li>
-          </ul> -->
-
-          {{ partial "form.html" . }}
-        </main>
-      </div>
-    </div>
-    <!-- {{ partial "footer.html" . }} -->
+  {{ partial "header.html" . }}
+  {{ partial "content.html" . }}
+  {{ partial "footer.html" . }}
   </div>
 </body>
 </html>

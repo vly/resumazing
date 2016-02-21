@@ -2,117 +2,227 @@ $black: #212121;
 $white: #ffffff;
 $highlight: #FF5722;
 $accent: #303F9F;
+$grey: #B6B6B6;
+
+$breakpoint1: 500px;
+$breakpoint2: 1000px;
+$breakpoint3: 1800px;
 
 html, body { height: 100%; }
 
 body {
-  background: url(../img/background.jpg) no-repeat center center fixed;
-  background-size: cover;
   color: $black;
   font-family: "ff-tisa-web-pro", serif;
   font-size: 16px;
+  margin: 0;
   min-height: 100%;
+  padding: 0;
 }
 
-.flex-wrap {
-  min-height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.body-wrap {
+.logo {
   margin: 0 auto;
-  width: 94%;
+  width: 200px;
 
-  @media screen and (min-width: 600px) {
-    width: 80%;
+  @media screen and (min-width: $breakpoint2) {
+    margin: 0;
+    padding-left: 10%;
   }
 
-  @media screen and (min-width: 1000px) {
-    display: table;
-    margin-top: -10%;
-    max-width: 1100px;
-    width: 90%;
+  svg {
+    fill: $white;
+  }
+}
 
-    .logo {
-      border-right: 1px solid $black;
-      display: table-cell;
-      margin: 0;
-      padding-bottom: 20px;
-      padding-top: 20px;
-      width: 360px;
+header {
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: $white;
+  height: 100%;
+  margin: 0;
+  padding: 20px 20px 0 20px;
+
+  .center-align-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin-top: -20px;
+
+    @media screen and (min-width: $breakpoint2) {
+      justify-content: flex-start;
+      padding-left: 10%;
     }
 
-    .right {
-      display: table-cell;
-      padding-bottom: 30px;
-      padding-left: 50px;
-      padding-top: 10px;
+    .center-align {
+      max-width: 700px;
+    }
+  }
+
+  form {
+    h2 {
+      margin-bottom: 10px;
+      margin-top: 60px;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: normal;
+      text-align: left;
+    }
+
+    input[type="email"] {
+      border-bottom: 2px solid $white;
+
+      &:focus {
+        color: $white;
+      }
+    }
+
+    .bar:before,
+    .bar:after {
+      background: $highlight;
+    }
+
+    ::-webkit-input-placeholder {
+        color: $white;
+    }
+
+    :-moz-placeholder {
+       color: $white;
+       opacity: 1;
+    }
+
+    ::-moz-placeholder {
+       color: $white;
+       opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+       color: $white;
+    }
+
+    :placeholder-shown {
+      color: $white;
     }
   }
 }
 
 h1 {
   font-family: "ff-tisa-sans-web-pro", sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: normal;
   line-height: 1.2;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px auto;
+  max-width: 600px;
   text-align: center;
 
-  &:after {
-    border-bottom: 2px solid $black;
-    content: "";
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 30px 0;
-    width: 80px;
+  @media screen and (min-width: $breakpoint1) {
+    font-size: 2.5rem;
   }
 
-  @media screen and (min-width: 1000px) {
-    font-size: 3em;
+  @media screen and (min-width: $breakpoint2) {
+    font-size: 3rem;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     text-align: left;
-
-    &:after {
-      display: none;
-    }
   }
 }
 
 p {
-  margin-bottom: 20px;
-  margin-top: 0;
-
-  @media screen and (min-width: 1000px) {
-    font-size: 1.2rem;
-  }
+  margin: 0 auto 20px auto;
+  max-width: 700px;
 }
 
-.logo {
-  display: block;
-  margin: 20px auto 30px auto;
-  max-width: 100%;
-  width: 200px;
+section {
+  padding: 20px 20px 0px 20px;
+
+  &.lead {
+    p{
+      font-size: 1.2em;
+    }
+
+    @media screen and (min-width: $breakpoint2) {
+      padding-top: 80px;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: $breakpoint2) {
+    &.three-cols {
+      border-bottom: 1px solid $grey;
+      border-top: 1px solid $grey;
+      margin: 80px 10% 0 10%;
+      padding: 80px 0;
+
+      .col {
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 10px 50px;
+        width: 40%;
+        vertical-align: top;
+
+        &:first-child {
+          padding-left: 0;
+          width: 29%;
+        }
+
+        &:last-child {
+          padding-right: 0;
+          width: 29%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $breakpoint3) {
+    &.three-cols {
+      margin: 80px auto 0 auto;
+      max-width: 1400px;
+    }
+  }
 
   svg {
     display: block;
-    max-width: 300px;
-    width: 100%;
+    margin: 20px auto 20px auto;
+    width: 64px;
+  }
+
+  @media screen and (min-width: $breakpoint2) {
+    form {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 100px 0;
+
+      h2 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    }
   }
 }
 
-#mc_embed_signup {
+
+
+
+
+
+form {
+  margin: 0 auto;
+  max-width: 400px;
+
+  @media screen and (min-width: $breakpoint2) {
+    max-width: 100%;
+  }
+
   h2 {
-    margin-bottom: 30px;
-    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-top: 50px;
     font-size: 1rem;
     font-style: italic;
-    text-align: center;
-
-    @media screen and (min-width: 1000px) {
-      text-align: left;
-    }
+    text-align: left;
+    font-weight: normal;
   }
 
   .fields {
@@ -120,8 +230,9 @@ p {
       padding-top: 20px;
     }
 
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: $breakpoint2) {
       display: table;
+      max-width: 100%;
       width: 100%;
 
       & > div {
@@ -143,6 +254,7 @@ p {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid $black;
+    border-radius: 0;
     font-family: "ff-tisa-sans-web-pro", sans-serif;
     font-size: 1.4rem;
     outline: none;
@@ -199,6 +311,7 @@ p {
     background-color: $highlight;
     border: none;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 1px;
     color: $white;
     font-family: "ff-tisa-sans-web-pro", sans-serif;
     font-size: 1rem;
@@ -208,6 +321,8 @@ p {
     text-transform: uppercase;
     vertical-align: middle;
     width: 100%;
+
+    -webkit-appearance: none;
   }
 
   ::-webkit-input-placeholder {
@@ -226,5 +341,18 @@ p {
   }
   :placeholder-shown {
     color: $black;
+  }
+}
+
+
+footer {
+  background-color: $black;
+  color: $white;
+  margin: 50px 0 0 0;
+  padding: 20px;
+
+  p {
+    margin: 0;
+    text-align: center;
   }
 }
