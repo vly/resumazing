@@ -8,6 +8,37 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-73843121-1', 'auto');
+  ga(function(tracker) {
+	  var originalSendHitTask = tracker.get('sendHitTask');
+
+	  tracker.set('sendHitTask', function(model) {
+	    originalSendHitTask(model);
+	    var xhr = new XMLHttpRequest();
+	    xhr.open('POST', '//ppz8kcuvmg.execute-api.us-west-2.amazonaws.com/production/analytics', true);
+	    var p = model.get('hitPayload');
+	    var pf = p?JSON.parse('{"' + p.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
+	                 function(key, value) { return key===""?value:decodeURIComponent(value) }):{};
+	    function objclean(x) {
+			  var type = typeof pf;
+			  if (pf instanceof Array) {
+			    type = 'array';
+			  }
+			  if ((type == 'array') || (type == 'object')) {
+			    for (k in pf) {
+			      var v = pf[k];
+			      if ((v === '') && (type == 'object')) {
+			        delete pf[k];
+			      } else {
+			        objclean(v);
+			      }
+			    }
+			  }
+			}
+			objclean(pf);
+		    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		    xhr.send(JSON.stringify(pf));
+		  });
+	});
   ga('send', 'pageview');
 </script>
 <!-- <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us8.list-manage.com","uuid":"f8af0a5fd7caa07f728f20a21","lid":"eda1f62299"}) })</script> -->
