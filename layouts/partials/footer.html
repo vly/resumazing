@@ -37,12 +37,12 @@
 
 		pf['time'] = Date.now();
 		pf['device-language'] = navigator.language.toLowerCase();
-		pf['device-languages'] = navigator.languages.toLowerCase();
+		pf['device-language-other'] = navigator.languages.join(',').toLowerCase();
 		pf['device-userAgent'] = navigator.userAgent;
 		pf['device-os'] = navigator.platform;
 
 		objclean(pf);
-		
+
 	    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	    xhr.send(JSON.stringify(pf));
 	  });
