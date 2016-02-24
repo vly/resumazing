@@ -18,7 +18,7 @@
 	    var p = model.get('hitPayload');
 	    var pf = p?JSON.parse('{"' + p.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
 	                 function(key, value) { return key===""?value:decodeURIComponent(value) }):{};
-	    function objclean(x) {
+	    function objclean(pf) {
 			  var type = typeof pf;
 			  if (pf instanceof Array) {
 			    type = 'array';
@@ -33,11 +33,11 @@
 			      }
 			    }
 			  }
-			}
-			objclean(pf);
-		    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-		    xhr.send(JSON.stringify(pf));
-		  });
+		}
+		objclean(pf);
+	    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	    xhr.send(JSON.stringify(pf));
+	  });
 	});
   ga('send', 'pageview');
 </script>
